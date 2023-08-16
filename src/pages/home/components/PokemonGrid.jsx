@@ -1,10 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { PokemonCard } from "./PokemonCard";
+import { SkeletonLoader } from "../../../components";
 import { getAllPokemons } from "../../../services";
 import { useInfiniteQuery } from "react-query";
 import { ClipLoader } from "react-spinners";
 
 export const PokemonGrid = () => {
+  const [showSkeletons, setShowSkeletons] = useState(true);
+
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery(["pokemones"], getAllPokemons, {
       getNextPageParam: (lastPage) => lastPage.nextPage,
@@ -26,7 +29,22 @@ export const PokemonGrid = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isLoading, hasNextPage, fetchNextPage]);
 
-  if (isLoading) return;
+  useEffect(() => {
+    if (!isLoading) {
+      const timeout = setTimeout(() => {
+        setShowSkeletons(false);
+      }, 1000);
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoading]);
+
+  if (showSkeletons) {
+    return (
+      <div className="grid grid-cols-12 gap-5 py-10">
+        <SkeletonLoader count={50} />
+      </div>
+    );
+  }
 
   const { pages } = data;
 
