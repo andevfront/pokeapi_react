@@ -1,6 +1,6 @@
 # <img src="https://pokeapi.co/static/pokeapi_256.3fa72200.png" width='180px'/>
 
-# (En estapa de desarrollo)
+# (En etapa de desarrollo)
 
 Sitio web inspirado en la Pokédex de la franquicia Pokémon, donde los usuarios pueden explorar las distintas especies de Pokémon junto con sus estadísticas. Todos los datos son obtenidos a través de la API [PokéApi](https://pokeapi.co/).
 
