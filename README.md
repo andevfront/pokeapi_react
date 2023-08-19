@@ -20,7 +20,7 @@ Ver demostración: [demo](http://pokeapi.andevfrontend.com/).
 Utilice [Node.js](https://nodejs.org/en/download/) 16 o superior.
 
 #### 1) Clonar el repositorio:
-     https://github.com/andevfront/pokeapi_react.git 
+     git clone https://github.com/andevfront/pokeapi_react.git 
      
 #### 2) Navegue hasta el clon:
     cd pokeapi_react
